@@ -14,11 +14,10 @@ body {
 }
 
 .header {
-    -webkit-background-size  1px 113px;
-    -moz-background-size: 1px 113px;
-    -ms-background-size: 1px 113px;
-    -o-background-size: 1px 113px;
-    background-size: 1px 113px;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
     height: 113px;
     line-height: 113px;
     width: 100%;
@@ -26,7 +25,7 @@ body {
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     border-bottom: solid 1px #eee;
-    background: #6c0107 url('../img/header_bg.jpg') no-repeat left top;
+    background: #6c0107 url('../img/header_bg.jpg') no-repeat center top fixed;
 	  height:113px;
 }
 
