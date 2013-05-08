@@ -14,8 +14,8 @@ body {
 }
 
 .header {
-background: #666;
-    -webkit-background-size: 1px 113px;
+    background: #6c0107;
+    -webkit-background-size  1px 113px;
     -moz-background-size: 1px 113px;
     -ms-background-size: 1px 113px;
     -o-background-size: 1px 113px;
@@ -27,7 +27,8 @@ background: #666;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     border-bottom: solid 1px #eee;
-    background: url(../img/header_bg.jpg) no-repeat left top;
+    background: url('../img/header_bg.jpg') no-repeat left top;
+	  height:113px;
 }
 
 .header h1 {
