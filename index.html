@@ -6,13 +6,13 @@
 <body>
 
 <script id="home-tpl" type="text/x-handlebars-template">
-    <div class='header' style='background: #6c0107 url(img/header_bg.jpg) no-repeat left top;'></div>
+    <div class='header'></div>
     <div class='search-bar'><a href="#allChapters" class='view-chapters'>View All KZN Chapters</a></div>
     <div class="scroll"><ul class='chapter-list'></ul></div>
 </script>
 
 <script id="chapter-li-tpl" type="text/x-handlebars-template">
-    <div class='header'><a href='#' class="button header-button header-button-left">Back</a></div>
+    <div class='header'><a href='#' class="button header-button header-button-right">Back</a></div>
     {{#.}}
     <li><a href="#chapters/{{this.id}}"><div style="width:100%;overflow:auto;">
           <div style="width:100px;float:left;">{{this.chaptername}}</div>
@@ -32,7 +32,7 @@
 </script>
 
 <script id="member-tpl" type="text/x-handlebars-template">
-    <div class='header'><a href='#members' class="button header-button header-button-left">Back</a></div>
+    <div class='header'><a href='#members' class="button header-button header-button-right">Back</a></div>
     <div class='details'>
     <img id='image' src='img/{{firstName}}_{{lastName}}.jpg' style="float:left;margin:10px;"/>
     <h1>{{firstName}} {{lastName}}</h1>
@@ -50,7 +50,7 @@
 </script>
 
 <script id="chapter-tpl" type="text/x-handlebars-template">
-    <div class='header'><a href='#allChapters' class="button header-button header-button-left">Back</a></div>
+    <div class='header'><a href='#allChapters' class="button header-button header-button-right">Back</a></div>
     {{#.}}
     <li><a href="#members/{{this.memberid}}"><div style="width:100%;overflow:auto;">
           <div style="width:100px;float:left;">{{firstName}} {{lastName}}</div>

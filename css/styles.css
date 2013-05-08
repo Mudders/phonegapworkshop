@@ -26,7 +26,7 @@ body {
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     border-bottom: solid 1px #eee;
-
+    background: #6c0107 url('../img/header_bg.jpg') no-repeat left top;
 	  height:113px;
 }
 
@@ -51,8 +51,8 @@ body {
     line-height: 1em;
 }
 
-.header-button-left {
-    left: 4;
+.header-button-right {
+    right: 4;
 }
 
 .search-bar {
@@ -111,7 +111,7 @@ li {
 }
 
 li {
-    padding: 0;
+    padding: 10px;
     display: -webkit-box;
     display: -moz-box;
     display: box;
