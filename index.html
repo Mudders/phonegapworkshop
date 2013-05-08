@@ -6,19 +6,33 @@
 <body>
 
 <script id="home-tpl" type="text/x-handlebars-template">
-    <div class='header'><h1>Home</h1></div>
-    <div class='search-bar'><input class='search-key' type="search"/></div>
-    <div class="scroll"><ul class='employee-list'></ul></div>
+    <div class='header'></div>
+    <div class='search-bar'><a href="#allChapters" class='view-chapters'>View All KZN Chapters</a></div>
+    <div class="scroll"><ul class='chapter-list'></ul></div>
 </script>
 
-<script id="employee-li-tpl" type="text/x-handlebars-template">
+<script id="chapter-li-tpl" type="text/x-handlebars-template">
+    <div class='header'><a href='#' class="button header-button header-button-left">Back</a></div>
     {{#.}}
-    <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
+    <li><a href="#chapters/{{this.id}}"><div style="width:100%;overflow:auto;">
+          <div style="width:100px;float:left;">{{this.chaptername}}</div>
+          <div style="width:100px;float:left;">{{this.city}}</div>
+          <div style="width:130px;float:left;">{{this.area}}</div>
+          <div style="width:100px;float:left;">{{this.meetingday}}</div>
+          <div style="width:100px;float:left;">{{this.meetingtime}}</div>
+        </div></a>
+      </li>
     {{/.}}
 </script>
 
-<script id="employee-tpl" type="text/x-handlebars-template">
-    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
+<script id="member-li-tpl" type="text/x-handlebars-template">
+    {{#.}}
+    <li><a href="#members/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
+    {{/.}}
+</script>
+
+<script id="member-tpl" type="text/x-handlebars-template">
+    <div class='header'><a href='#members' class="button header-button header-button-left">Back</a></div>
     <div class='details'>
     <img id='image' src='img/{{firstName}}_{{lastName}}.jpg' style="float:left;margin:10px;"/>
     <h1>{{firstName}} {{lastName}}</h1>
@@ -35,12 +49,27 @@
     </div>
 </script>
 
+<script id="chapter-tpl" type="text/x-handlebars-template">
+    <div class='header'><a href='#allChapters' class="button header-button header-button-left">Back</a></div>
+    {{#.}}
+    <li><a href="#members/{{this.memberid}}"><div style="width:100%;overflow:auto;">
+          <div style="width:100px;float:left;">{{firstName}} {{lastName}}</div>
+          <div style="width:100px;float:left;">{{this.title}}</div>
+          <div style="width:130px;float:left;">{{this.officePhone}}</div>
+          <div style="width:100px;float:left;">{{this.cellPhone}}</div>
+        </div></a>
+      </li>
+    {{/.}}
+</script>
+
 <script src="phonegap.js"></script>
 <script src="lib/jquery-1.8.2.min.js"></script>
 <script src="lib/handlebars.js"></script>
 <script src="js/storage/websql-store.js"></script>
 <script src="js/HomeView.js"></script>
-<script src="js/EmployeeView.js"></script>
+<script src="js/MemberView.js"></script>
+<script src="js/ChapterDetailView.js"></script>
+<script src="js/ChapterView.js"></script>
 <script src="js/main.js"></script>
 
 </body>

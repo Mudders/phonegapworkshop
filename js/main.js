@@ -30,12 +30,32 @@ var app = {
             }
             return;
         }
-        var match = hash.match(this.detailsURL);
+
+        if (hash == "#members" && window.localStorage.getItem("chapter")) { hash = "#chapters/" + window.localStorage.getItem("chapter"); }
+
+        var match = hash.match(this.allChaptersURL);
         if (match) {
-            this.store.findById(Number(match[1]), function(employee) {
-                self.slidePage(new EmployeeView(employee).render());
+            console.log("Into All Chapter...");
+            this.store.findAllChapters(function(chapters) {
+                self.slidePage(new ChapterView(chapters).render());
             });
         }
+        match = hash.match(this.chaptersURL);
+        if (match) {
+            console.log("Into Chapter..." + Number(match[1]));
+            window.localStorage.setItem("chapter", Number(match[1]));
+            this.store.findChapterMembersById(Number(match[1]), function(members) {
+                self.slidePage(new ChapterDetailView(members).render());
+            });
+        }
+        match = hash.match(this.membersURL);
+        if (match) {
+            console.log("Into Member..." + Number(match[1]));
+            this.store.findById(Number(match[1]), function(member) {
+                self.slidePage(new MemberView(member).render());
+            });
+        }
+
     },
 
     slidePage: function(page) {
@@ -79,7 +99,9 @@ var app = {
 
     initialize: function() {
         var self = this;
-        this.detailsURL = /^#employees\/(\d{1,})/;
+        this.allChaptersURL = /^#allChapters/;
+        this.chaptersURL = /^#chapters\/(\d{1,})/;
+        this.membersURL = /^#members\/(\d{1,})/;
         this.registerEvents();
         this.store = new WebSqlStore(function() {
             self.route();
