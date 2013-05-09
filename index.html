@@ -7,8 +7,14 @@
 
 <script id="home-tpl" type="text/x-handlebars-template">
     <div class='header'></div>
-    <div class='search-bar'><a href="#allChapters" class='view-chapters'>View All KZN Chapters</a></div>
+    <div class='chapter-bar'><a href="#allChapters" class='view-chapters'>View All KZN Chapters</a></div>
+    <div class='search-bar'><a href="#searchIndustry" class='view-industry'>Search by Industry</a></div>
     <div class="scroll"><ul class='chapter-list'></ul></div>
+</script>
+
+<script id="search-tpl" type="text/x-handlebars-template">
+  <div class='header'></div>
+  <div class='search-bar'><input class='search-key' type="search"/></div>
 </script>
 
 <script id="chapter-li-tpl" type="text/x-handlebars-template">
@@ -39,7 +45,11 @@
     <h2>{{company}}</h2>
     <span class="location"></span>
     <ul>
-    <li>Contact Details<br/>{{contact}}</li>
+    {{#if phone}}<li><a href="tel:{{phone}}">Call Office<br/>{{phone}}</a></li>{{/if}}
+    {{#if mobile}}<li><a href="tel:{{mobile}}">Call Cell<br/>{{mobile}}</a></li>{{/if}}
+    {{#if website}}<li><a href="{{website}}" target="_new">Website<br/>{{website}}</a></li>{{/if}}
+    {{#if address}}<li>Address<br/>{{address}}</li>{{/if}}
+    <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
     </ul>
     </div>
 </script>
@@ -63,6 +73,7 @@
 <script src="js/MemberView.js"></script>
 <script src="js/ChapterDetailView.js"></script>
 <script src="js/ChapterView.js"></script>
+<script src="js/SearchIndustryView.js"></script>
 <script src="js/main.js"></script>
 
 </body>

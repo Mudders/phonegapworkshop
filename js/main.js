@@ -55,6 +55,12 @@ var app = {
                 self.slidePage(new MemberView(member).render());
             });
         }
+        match = hash.match(this.searchIndustry);
+        if (match) {
+            console.log("Into searchIndustry...");
+            self.slidePage(new SearchIndustryView().render());
+
+        }
 
     },
 
@@ -105,6 +111,7 @@ var app = {
         this.allChaptersURL = /^#allChapters/;
         this.chaptersURL = /^#chapters\/(\d{1,})/;
         this.membersURL = /^#members\/(\d{1,})/;
+        this.searchIndustry = /^#searchIndustry/;
         this.registerEvents();
         this.store = new WebSqlStore(function() {
             self.route();

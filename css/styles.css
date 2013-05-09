@@ -54,6 +54,16 @@ body {
     right: 4;
 }
 
+.chapter-bar {
+    background: #ccc;
+    height: 32px;
+    padding-left:6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    margin-bottom: 6px;
+    border-bottom: solid 1px #666;
+}
+
 .search-bar {
     background: #ccc;
     height: 32px;
