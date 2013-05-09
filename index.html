@@ -34,17 +34,12 @@
 <script id="member-tpl" type="text/x-handlebars-template">
     <div class='header'><a href='#members' class="button header-button header-button-right">Back</a></div>
     <div class='details'>
-    <img id='image' src='img/{{firstName}}_{{lastName}}.jpg' style="float:left;margin:10px;"/>
-    <h1>{{firstName}} {{lastName}}</h1>
-    <h2>{{title}}</h2>
+    <!-- <img id='image' src='img/{{firstName}}_{{lastName}}.jpg' style="float:left;margin:10px;"/> -->
+    <h1>{{name}}</h1>
+    <h2>{{company}}</h2>
     <span class="location"></span>
     <ul>
-    <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
-    <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
-    <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
-    <li><a href="#" class="add-location-btn">Add Location</a></li>
-    <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
-    <li><a href="#" class="change-pic-btn">Change Picture</a></li>
+    <li>Contact Details<br/>{{contact}}</li>
     </ul>
     </div>
 </script>
@@ -52,11 +47,9 @@
 <script id="chapter-tpl" type="text/x-handlebars-template">
     <div class='header'><a href='#allChapters' class="button header-button header-button-right">Back</a></div>
     {{#.}}
-    <li><a href="#members/{{this.memberid}}"><div style="width:100%;overflow:auto;">
-          <div style="width:100px;float:left;">{{firstName}} {{lastName}}</div>
-          <div style="width:100px;float:left;">{{this.title}}</div>
-          <div style="width:130px;float:left;">{{this.officePhone}}</div>
-          <div style="width:100px;float:left;">{{this.cellPhone}}</div>
+    <li><a href="#members/{{this.memberid}}"><div style="width:90%;overflow:auto;">
+          <div style="width:200px;float:left;">{{this.name}}</div>
+          <div style="width:100px;float:left;">{{this.company}}</div>
         </div></a>
       </li>
     {{/.}}
