@@ -20,6 +20,7 @@ var app = {
 
     route: function() {
         var self = this;
+
         var hash = window.location.hash;
         if (!hash) {
             if (this.homePage) {
@@ -58,8 +59,16 @@ var app = {
         match = hash.match(this.searchIndustry);
         if (match) {
             console.log("Into searchIndustry...");
-            self.slidePage(new SearchIndustryView().render());
-
+            this.searchPage = new SearchIndustryView(this.store).render();
+            this.slidePage(this.searchPage);
+            return;
+        }
+        match = hash.match(this.industryURL);
+        if (match) {
+            console.log("Into industry..." + Number(match[1]));
+            this.store.findMembersByIndustry(Number(match[1]), function(members) {
+                self.slidePage(new ChapterDetailView(members).render());
+            });
         }
 
     },
@@ -112,6 +121,7 @@ var app = {
         this.chaptersURL = /^#chapters\/(\d{1,})/;
         this.membersURL = /^#members\/(\d{1,})/;
         this.searchIndustry = /^#searchIndustry/;
+        this.industryURL = /^#industry\/(\d{1,})/;
         this.registerEvents();
         this.store = new WebSqlStore(function() {
             self.route();

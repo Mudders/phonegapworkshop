@@ -32,12 +32,11 @@ var MemberView = function(member) {
             app.showAlert("Contacts API not supported", "Error");
             return;
         }
-        alert(app.currentMember.name);
         var contact = navigator.contacts.create();
-        contact.displayName = app.currentMember.name;
+        contact.name = {givenName: app.currentMember.firstName, familyName:  app.currentMember.lastName};
         var phoneNumbers = [];
-        phoneNumbers[0] = new ContactField('work', app.currentMember.phone, false);
-        phoneNumbers[1] = new ContactField('mobile', app.currentMember.mobile, true); // preferred number
+        phoneNumbers[0] = new ContactField('work', app.currentMember.officePhone, false);
+        phoneNumbers[1] = new ContactField('mobile', app.currentMember.cellPhone, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
         contact.save();
         return false;

@@ -2314,6 +2314,56 @@ var WebSqlStore = function(successCallback, errorCallback) {
         );
     };
 
+    this.findIndustryByName = function(searchKey, callback) {
+        this.db.transaction(
+            function(tx) {
+
+                var sql = "SELECT e.id, e.keyword " +
+                    "FROM keyword e " +
+                    "WHERE e.keyword LIKE ? " +
+                    "GROUP BY e.id ORDER BY e.keyword";
+
+                tx.executeSql(sql, ['%' + searchKey + '%'], function(tx, results) {
+                    var len = results.rows.length,
+                        members = [],
+                        i = 0;
+                    for (; i < len; i = i + 1) {
+                        members[i] = results.rows.item(i);
+                    }
+                    callback(members);
+                });
+            },
+            function(error) {
+                alert("Transaction Error: " + error.message);
+            }
+        );
+    }
+
+    this.findMembersByIndustry = function(id, callback) {
+        this.db.transaction(
+            function(tx) {
+
+                var sql = "SELECT e.id, e.keyid, e.memberid, m.id as memberid, m.name, m.chapterid, m.company   " +
+                    "FROM keywordmember e " +
+                    "LEFT JOIN member m ON m.id = e.memberid " +
+                    "WHERE e.keyid=:id";
+
+                tx.executeSql(sql, [id], function(tx, results) {
+                    var len = results.rows.length,
+                        members = [],
+                        i = 0;
+                    for (; i < len; i = i + 1) {
+                        members[i] = results.rows.item(i);
+                    }
+                    callback(members);
+                });
+            },
+            function(error) {
+                alert("Transaction Error: " + error.message);
+            }
+        );
+    }
+
     this.initializeDatabase(successCallback, errorCallback);
 
 }

@@ -26,7 +26,6 @@ body {
     -webkit-touch-callout: none;
     border-bottom: solid 1px #eee;
     background: #6c0107 url('../img/header_bg.jpg') no-repeat center top fixed;
-	  height:113px;
 }
 
 .header h1 {
@@ -54,24 +53,14 @@ body {
     right: 4;
 }
 
-.chapter-bar {
-    background: #ccc;
-    height: 32px;
-    padding-left:6px;
-    padding-right: 6px;
-    padding-top: 6px;
-    margin-bottom: 6px;
-    border-bottom: solid 1px #666;
-}
-
 .search-bar {
     background: #ccc;
-    height: 32px;
+    height: 42px;
     padding-left:6px;
     padding-right: 6px;
     padding-top: 6px;
     margin-bottom: 6px;
-    border-bottom: solid 1px #666;
+    border: solid 1px #666;
 }
 
 input[type="search"] {
@@ -96,21 +85,6 @@ ul {
     padding: 0;
     list-style: none;
     background-color: #fafafa;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-li {
-    display: block;
-    border-top: 1px solid #c0c0c0;
-    padding: 10px;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
 }
 
 li {
@@ -130,23 +104,9 @@ li {
 li>a {
     color: #000;
     display: block;
-    padding: 5px;
     text-decoration: none;
     width: 100%;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    box-flex: 1;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background-position: -10px 0;
-    background-repeat: no-repeat;
-    -webkit-background-size: 10px 100%;
-    -moz-background-size: 10px 100%;
-    -ms-background-size: 10px 100%;
-    -o-background-size: 10px 100%;
-    background-size: 10px 100%;
-}
+    }
 
 li>a * {
     pointer-events: none;
@@ -194,8 +154,8 @@ h2 {
 .scroll {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    position: absolute;
-    top: 153px;
+    position: relative;
+
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -232,3 +192,32 @@ li>a.tappable-active {
     -webkit-transition-duration: .375s;
     -o-transition-duration: .375s;
 }
+
+
+ /* Low density (120), mdpi */
+@media screen and (-webkit-device-pixel-ratio: 0.75)
+  {
+     #viewchapters-icon { background:url(../img/ldpi/viewchapters.png) no-repeat left center ; }
+     #searchindustry-icon { background:url(../img/ldpi/searchindustry.png) no-repeat left center ; }
+   }
+
+   /* Medium density (160), mdpi */
+  @media screen and (-webkit-device-pixel-ratio: 1)
+    {
+      #viewchapters-icon { background:url(../img/mdpi/viewchapters.png) no-repeat left center ; }
+      #searchindustry-icon { background:url(../img/mdpi/searchindustry.png) no-repeat left center ; }
+    }
+
+       /* High density (240), hdpi */
+    @media screen and (-webkit-device-pixel-ratio: 1.5)
+       {
+           #viewchapters-icon { background:url(../img/hdpi/viewchapters.png) no-repeat left top ; }
+           #searchindustry-icon { background:url(../img/hdpi/searchindustry.png) no-repeat left top ; }
+        }
+
+         /* Extra high density (320), xhdpi */
+        @media screen and (-webkit-device-pixel-ratio: 2)
+          {
+            #viewchapters-icon { background:url(../img/xdpi/viewchapters.png) no-repeat left top ; }
+            #searchindustry-icon { background:url(../img/xdpi/searchindustry.png) no-repeat left top ; }
+        }

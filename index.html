@@ -7,14 +7,25 @@
 
 <script id="home-tpl" type="text/x-handlebars-template">
     <div class='header'></div>
-    <div class='chapter-bar'><a href="#allChapters" class='view-chapters'>View All KZN Chapters</a></div>
-    <div class='search-bar'><a href="#searchIndustry" class='view-industry'>Search by Industry</a></div>
-    <div class="scroll"><ul class='chapter-list'></ul></div>
+              <li>
+                <a href="#allChapters" class='view-chapters'><div id="viewchapters-icon" style="width:100%; padding-left:100px;"><div style="text-align:left;"><h1 >View all KZN Chapters</h1></div></div></a>
+	            </li>
+	            <li>
+                <a href="#searchIndustry" class='view-industry'><div id="searchindustry-icon" style="width:100%; padding-left:100px;"><div style="text-align:left;"><h1 >Search by Industry</h1></div></div></a>
+          </li>
 </script>
 
 <script id="search-tpl" type="text/x-handlebars-template">
   <div class='header'></div>
   <div class='search-bar'><input class='search-key' type="search"/></div>
+  <div class="scroll"><ul class='industry-list'></ul></div>
+</script>
+
+
+<script id="search-li-tpl" type="text/x-handlebars-template">
+    {{#.}}
+    <li><a href="#industry/{{this.id}}">{{this.keyword}}</a></li>
+    {{/.}}
 </script>
 
 <script id="chapter-li-tpl" type="text/x-handlebars-template">
@@ -49,7 +60,7 @@
     {{#if mobile}}<li><a href="tel:{{mobile}}">Call Cell<br/>{{mobile}}</a></li>{{/if}}
     {{#if website}}<li><a href="{{website}}" target="_new">Website<br/>{{website}}</a></li>{{/if}}
     {{#if address}}<li>Address<br/>{{address}}</li>{{/if}}
-    <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
+    <!-- <li><a href="#" class="add-contact-btn">Add to Contacts</a></li> -->
     </ul>
     </div>
 </script>
