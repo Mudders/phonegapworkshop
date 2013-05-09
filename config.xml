@@ -8,7 +8,7 @@
     <!-- versionCode is optional and Android only -->
 
     <name>BNI KZN</name>
-
+    <icon src="img/logo.png" />
     <description>
         BNI KZN Member application
     </description>
