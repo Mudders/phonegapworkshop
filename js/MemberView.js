@@ -33,10 +33,10 @@ var MemberView = function(member) {
             return;
         }
         var contact = navigator.contacts.create();
-        contact.name = {givenName: app.currentMember.firstName, familyName:  app.currentMember.lastName};
+        contact.name = {displayName: app.currentMember.name};
         var phoneNumbers = [];
-        phoneNumbers[0] = new ContactField('work', app.currentMember.officePhone, false);
-        phoneNumbers[1] = new ContactField('mobile', app.currentMember.cellPhone, true); // preferred number
+        phoneNumbers[0] = new ContactField('work', app.currentMember.phone, false);
+        phoneNumbers[1] = new ContactField('mobile', app.currentMember.mobile, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
         contact.save();
         return false;
