@@ -8,7 +8,11 @@
     <!-- versionCode is optional and Android only -->
 
     <name>BNI KZN</name>
-    <icon src="img/logo.png" />
+    <icon src="img/logo.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="img/logo.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="img/logo.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="img/logo.png" gap:platform="android" gap:density="xhdpi" />
+    <icon src="img/logo.png" gap:platform="ios" />
     <description>
         BNI KZN Member application
     </description>

@@ -34,7 +34,7 @@
 <script id="member-tpl" type="text/x-handlebars-template">
     <div class='header'><a href='#members' class="button header-button header-button-right">Back</a></div>
     <div class='details'>
-    <!-- <img id='image' src='img/{{firstName}}_{{lastName}}.jpg' style="float:left;margin:10px;"/> -->
+    <!-- <img id='image' src='img/{{name}}.jpg' style="float:left;margin:10px;"/> -->
     <h1>{{name}}</h1>
     <h2>{{company}}</h2>
     <span class="location"></span>
@@ -48,8 +48,8 @@
     <div class='header'><a href='#allChapters' class="button header-button header-button-right">Back</a></div>
     {{#.}}
     <li><a href="#members/{{this.memberid}}"><div style="width:90%;overflow:auto;">
-          <div style="width:200px;float:left;">{{this.name}}</div>
-          <div style="width:100px;float:left;">{{this.company}}</div>
+          <div style="width:60%;float:left;">{{this.name}}</div>
+          <div style="width:40%;float:left;">{{this.company}}</div>
         </div></a>
       </li>
     {{/.}}
