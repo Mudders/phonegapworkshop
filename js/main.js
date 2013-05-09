@@ -93,6 +93,9 @@ var app = {
             // Slide in the new page
             $(page.el).attr('class', 'page stage-center transition');
             self.currentPage = page;
+            $(function() {
+               $('body').scrollTop(0);
+            });
         });
 
     },
