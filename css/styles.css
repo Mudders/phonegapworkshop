@@ -194,18 +194,3 @@ li>a.tappable-active {
 }
 
 
- /* Low density (120), mdpi */
-@media screen and (-webkit-device-pixel-ratio: 0.75)
-  {
-     #viewchapters-icon { background:url(../img/ldpi/viewchapters.png) no-repeat left center ; }
-     #searchindustry-icon { background:url(../img/ldpi/searchindustry.png) no-repeat left center ; }
-   }
-
-   /* Medium density (160), mdpi */
-  @media screen and (-webkit-device-pixel-ratio: 1)
-    {
-      #viewchapters-icon { background:url(../img/mdpi/viewchapters.png) no-repeat left center ; }
-      #searchindustry-icon { background:url(../img/mdpi/searchindustry.png) no-repeat left center ; }
-    }
-
-
