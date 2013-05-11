@@ -1,0 +1,99 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+/* customize page background color */
+#bni-home {
+	background-image: none;
+	background-color: #6c0107;
+	}
+
+
+/* customize header */
+#bni-home .ui-header {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#6c0107),to(#6c0107));
+	background-image: -webkit-linear-gradient(#6c0107,#6c0107);
+	background-image: -moz-linear-gradient(#6c0107,#6c0107);
+	background-image: -ms-linear-gradient(#6c0107,#6c0107);
+	background-image: -o-linear-gradient(#6c0107,#6c0107);
+	background-image: linear-gradient(#6c0107,#6c0107);
+	border-bottom: 1px solid #222;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+	}
+	#bni-home .ui-header h1 {
+  min-width: 100%;
+		}
+
+
+
+/* customize listview */
+#bni-home .ui-li {
+	}
+	#bni-home .ui-li .ui-btn-inner {
+		border-color: rgba(255, 255, 255, .2);
+		border-bottom: rgba(0, 0, 0, .3) solid 1px;
+		}
+
+#bni-home .ui-li-heading {
+	font-size: 22px;
+	line-height: 150%;
+	font-weight: normal;
+	margin-left: -25px;
+	font-family: "arial rounded mt bold", helvetica, arial, sans-serif;
+	letter-spacing: 1px;
+	}
+	.ui-btn-up-l,
+	.ui-btn-hover-l {
+		background-color: #303030;
+		color: #eee;
+		}
+	.ui-btn-up-l .ui-link-inherit,
+	.ui-btn-hover-l .ui-li-heading,
+	.ui-btn-hover-l .ui-li-heading {
+		color: #fff;
+		text-shadow: none;
+		}
+
+
+/* customize fonts */
+#bni-home .ui-select .ui-btn-up-a,
+#bni-home .ui-select .ui-btn-hover-a,
+#bni-home .ui-select .ui-btn-down-a {
+	font-family: "arial rounded mt bold", helvetica, arial, sans-serif;
+	}
+
+
+/* customize the listview right-arrow */
+.ui-icon-ls-arrow-r {
+	background-image: url(images/ls-arrow-r.png);
+	box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+	border-radius: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px;
+	background-color: rgba(0, 0, 0, 0);
+	}
+
+
+/* customize the city dropdown */
+#bni-home #city-button .ui-btn-text {
+	text-align: left;
+	font-size: 120%;
+	}
+	.ui-icon-ls-arrow-d {
+		background-image: url(images/ls-arrow-d.png);
+		box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+		border-radius: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px;
+		background-color: rgba(0, 0, 0, 0);
+		}
