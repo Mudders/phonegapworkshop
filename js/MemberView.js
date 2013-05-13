@@ -32,18 +32,8 @@ var MemberView = function(member) {
             app.showAlert("Contacts API not supported", "Error");
             return;
         }
-        navigator.notification.confirm(
-            'Are you sure you want to add to contacts?',  // message
-            onConfirm,              // callback to invoke with index of button pressed
-            'Add to Contacts Confirmation',            // title
-            'Yes, No'          // buttonLabels
-        );
 
 
-        return false;
-    };
-
-    this.onConfirm = function(buttonIndex) {
         var contact = navigator.contacts.create({"displayName": member.name});
         //contact.displayName = displayName: member.name;
         var phoneNumbers = [];
@@ -54,7 +44,19 @@ var MemberView = function(member) {
         ContactOrganization.name = member.company;
         contact.ContactOrganization = ContactOrganization;
         contact.save();
+
+        navigator.notification.alert(
+            member.name + ' Saved',  // message
+            alertDismissed,         // callback
+            'Contact Saved',            // title
+            'Done'                  // buttonName
+        );
+
         return false;
+    };
+
+     this.alertDismissed = function() {
+
     }
 
     this.changePicture = function(event) {
