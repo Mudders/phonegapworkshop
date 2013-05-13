@@ -32,8 +32,8 @@ var MemberView = function(member) {
             app.showAlert("Contacts API not supported", "Error");
             return;
         }
-        var contact = navigator.contacts.create();
-        contact.displayName = displayName: member.name;
+        var contact = navigator.contacts.create({"displayName": member.name});
+        //contact.displayName = displayName: member.name;
         var phoneNumbers = [];
         phoneNumbers[0] = new ContactField('work', member.phone, false);
         phoneNumbers[1] = new ContactField('mobile', member.mobile, true); // preferred number

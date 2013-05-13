@@ -2250,7 +2250,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
         this.db.transaction(
             function(tx) {
 
-                var sql = "SELECT e.id, e.name, e.company, e.phone, e.mobile, e.website, e.address, e.chapterid, c.chaptername, group_concat(k.keyword) as keywords " +
+                var sql = "SELECT e.id, e.name, e.company, e.phone, e.mobile, e.website, e.address, e.chapterid as chapterid, c.chaptername, group_concat(k.keyword) as keywords " +
                     "FROM member e " +
                     "LEFT JOIN chapter c on c.id = e.chapterid " +
                     "LEFT JOIN keywordmember km on km.memberid = e.id " +
