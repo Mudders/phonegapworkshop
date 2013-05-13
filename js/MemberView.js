@@ -38,9 +38,21 @@ var MemberView = function(member) {
         phoneNumbers[0] = new ContactField('work', member.phone, false);
         phoneNumbers[1] = new ContactField('mobile', member.mobile, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
-        contact.save();
+        navigator.notification.confirm(
+            'Are you sure you want to add to contacts?',  // message
+            onConfirm,              // callback to invoke with index of button pressed
+            'Add to Contacts Confirmation',            // title
+            'Yes, No'          // buttonLabels
+        );
+
+
         return false;
     };
+
+    this.onConfirm function(buttonIndex) {
+        contact.save();
+        return;
+    }
 
     this.changePicture = function(event) {
         event.preventDefault();
