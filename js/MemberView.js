@@ -49,9 +49,9 @@ var MemberView = function(member) {
         return false;
     };
 
-    this.onConfirm function(buttonIndex) {
+    this.onConfirm = function(buttonIndex) {
         contact.save();
-        return;
+        return false;
     }
 
     this.changePicture = function(event) {
