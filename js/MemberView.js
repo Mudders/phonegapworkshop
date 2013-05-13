@@ -32,12 +32,6 @@ var MemberView = function(member) {
             app.showAlert("Contacts API not supported", "Error");
             return;
         }
-        var contact = navigator.contacts.create({"displayName": member.name});
-        //contact.displayName = displayName: member.name;
-        var phoneNumbers = [];
-        phoneNumbers[0] = new ContactField('work', member.phone, false);
-        phoneNumbers[1] = new ContactField('mobile', member.mobile, true); // preferred number
-        contact.phoneNumbers = phoneNumbers;
         navigator.notification.confirm(
             'Are you sure you want to add to contacts?',  // message
             onConfirm,              // callback to invoke with index of button pressed
@@ -50,6 +44,15 @@ var MemberView = function(member) {
     };
 
     this.onConfirm = function(buttonIndex) {
+        var contact = navigator.contacts.create({"displayName": member.name});
+        //contact.displayName = displayName: member.name;
+        var phoneNumbers = [];
+        phoneNumbers[0] = new ContactField('work', member.phone, false);
+        phoneNumbers[1] = new ContactField('mobile', member.mobile, true); // preferred number
+        contact.phoneNumbers = phoneNumbers;
+        var ContactOrganization  = [];
+        ContactOrganization.name = member.company;
+        contact.ContactOrganization = ContactOrganization;
         contact.save();
         return false;
     }
