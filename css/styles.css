@@ -91,21 +91,17 @@ li {
     display: block;
     border-top: 1px solid #e0e0e0;
     padding: 10px;
-}
-
-li {
-    padding: 10px;
     display: -webkit-box;
     display: -moz-box;
     display: box;
-    width: 98%;
+    width: 90%;
 }
 
 li>a {
     color: #000;
     display: block;
     text-decoration: none;
-    width: 100%;
+    width: 90%;
     }
 
 li>a * {

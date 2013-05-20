@@ -45,19 +45,14 @@ var MemberView = function(member) {
         contact.ContactOrganization = ContactOrganization;
         contact.save();
 
-        navigator.notification.alert(
+        app.showAlert(
             member.name + ' Saved',  // message
-            alertDismissed,         // callback
-            'Contact Saved',            // title
-            'Done'                  // buttonName
+           'Done'                  // buttonName
         );
 
         return false;
     };
 
-     this.alertDismissed = function() {
-
-    }
 
     this.changePicture = function(event) {
         event.preventDefault();

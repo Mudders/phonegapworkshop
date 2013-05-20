@@ -53,6 +53,7 @@ var app = {
         if (match) {
             console.log("Into Member..." + Number(match[1]));
             this.store.findById(Number(match[1]), function(member) {
+                window.localStorage.setItem("chapter", Number(member.chapterid));
                 self.slidePage(new MemberView(member).render());
             });
         }
