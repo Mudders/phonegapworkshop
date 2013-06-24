@@ -266,25 +266,19 @@ var WebSqlStore = function(successCallback, errorCallback) {
 
     this.loadXMLDoc = function (tx, uuid, platform, cb_func)
     {
-      var xmlhttp;
-      if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-        }
-      else
-        {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-      xmlhttp.onreadystatechange=function()
-        {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-          {
-            cb_func(xmlhttp.responseText);
-          }
-        }
-      xmlhttp.open("POST","http://dev.maltec.co.za/bnikzn/cgi-bin/server.php",true);
-      xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      xmlhttp.send("uuid=" + uuid + "&platform=" + platform);
+      $.ajax({
+           type: 'GET',
+           url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.php?" + "uuid=" + uuid + "&amp;platform=" + platform,
+           processData: true,
+           data: {},
+           dataType: "json",
+           success: function (data) {
+               alert("SDFS" + data);
+           }
+      });
+
+
+
   }
 
 }

@@ -117,6 +117,7 @@ var app = {
     },
 
     initialize: function() {
+
         var self = this;
         this.allChaptersURL = /^#allChapters/;
         this.chaptersURL = /^#chapters\/(\d{1,})/;
