@@ -15,7 +15,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
     this.initializeDatabase = function(successCallback, errorCallback) {
         alert("02");
         var self = this;
-        this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
+        this.db = window.openDatabase("BNIDB1", "1.0", "BNIDB", 200000);
         alert("03");
         this.db.transaction(
                 function(tx) {
