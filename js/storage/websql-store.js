@@ -16,7 +16,9 @@ var WebSqlStore = function(successCallback, errorCallback) {
         alert("02");
         var self = this;
         this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
+        alert("03");
         this.db.transaction(
+          alert("04");
                 function(tx) {
                     alert("1");
                     // Check if tables exist - if they do then user already exists, else create
