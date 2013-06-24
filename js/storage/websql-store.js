@@ -11,8 +11,9 @@ var WebSqlStore = function(successCallback, errorCallback) {
       platform = device.platform;
     }
     alert("0");
-    //alert("SDf");
+
     this.initializeDatabase = function(successCallback, errorCallback) {
+        alert("02");
         var self = this;
         this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
         this.db.transaction(
@@ -274,7 +275,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
             }
         );
     }
-
+    alert("01");
     this.initializeDatabase(successCallback, errorCallback);
 
     this.loadXMLDoc = function (tx, uuid, platform, cb_func)
