@@ -1,7 +1,15 @@
 var WebSqlStore = function(successCallback, errorCallback) {
     //console.log(new Date().getTime())
     var $scope = angular.element('body').scope();
-    $scope.device = device;
+
+    if (typeof device == 'undefined') {
+      uuid = "12132";
+      platform = "Android";
+    }
+    else {
+      uuid = device.uuid;
+      platform = device.platform;
+    }
     alert("0");
     //alert("SDf");
     this.initializeDatabase = function(successCallback, errorCallback) {
@@ -20,7 +28,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           self.createKeywordMemberTable(tx);
                           self.createUserTable(tx);
                           // Now we need to pass through to the server the details of this user.
-                          self.loadXMLDoc(tx, $scope.device.uuid, $scope.device.platform, function( returnValue ){
+                          self.loadXMLDoc(tx, uuid, platform, function( returnValue ){
                               this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
                               this.db.transaction(
                               function(tx) {
@@ -29,7 +37,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           });
                         }
                         else {
-                          self.loadXMLDoc(tx, $scope.device.uuid, $scope.device.platform, function( returnValue ){
+                          self.loadXMLDoc(tx, uuid, platform, function( returnValue ){
                               this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
                               this.db.transaction(
                               function(tx) {
@@ -270,11 +278,10 @@ var WebSqlStore = function(successCallback, errorCallback) {
     {
     alert("1");
       $.ajax({
-           type: 'GET',
+           type: 'POST',
            url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.php?" + "uuid=" + uuid + "&amp;platform=" + platform,
            processData: true,
            data: {},
-           dataType: "json",
            success: function (data) {
                alert("SDFS" + data);
            }
