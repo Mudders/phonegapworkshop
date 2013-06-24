@@ -17,10 +17,12 @@ var WebSqlStore = function(successCallback, errorCallback) {
         this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
         this.db.transaction(
                 function(tx) {
+                    alert("1");
                     // Check if tables exist - if they do then user already exists, else create
                     var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
                     tx.executeSql(sql, [], function(tx, results) {
                         if (results.rows.length == 0) {
+                          alert("2");
                           // no user table so means we need to create all our tables...
                           self.createChapterTable(tx);
                           self.createMemberTable(tx);
@@ -37,6 +39,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           });
                         }
                         else {
+                          alert("3");
                           self.loadXMLDoc(tx, uuid, platform, function( returnValue ){
                               this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
                               this.db.transaction(
@@ -276,14 +279,14 @@ var WebSqlStore = function(successCallback, errorCallback) {
 
     this.loadXMLDoc = function (tx, uuid, platform, cb_func)
     {
-    alert("1");
+    alert("4");
       $.ajax({
            type: 'POST',
            url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.php?" + "uuid=" + uuid + "&amp;platform=" + platform,
            processData: true,
            data: {},
            success: function (data) {
-               alert("SDFS" + data);
+               alert("5 " + data);
            }
       });
 
