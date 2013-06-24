@@ -1,6 +1,8 @@
 var WebSqlStore = function(successCallback, errorCallback) {
     //console.log(new Date().getTime())
     var $scope = angular.element('body').scope();
+    $scope.device = device;
+    alert("0");
     //alert("SDf");
     this.initializeDatabase = function(successCallback, errorCallback) {
         var self = this;
@@ -18,7 +20,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           self.createKeywordMemberTable(tx);
                           self.createUserTable(tx);
                           // Now we need to pass through to the server the details of this user.
-                          self.loadXMLDoc(tx, "123456", "Android", function( returnValue ){
+                          self.loadXMLDoc(tx, $scope.device.uuid, $scope.device.platform, function( returnValue ){
                               this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
                               this.db.transaction(
                               function(tx) {
@@ -27,7 +29,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           });
                         }
                         else {
-                          self.loadXMLDoc(tx, "123456", "Android", function( returnValue ){
+                          self.loadXMLDoc(tx, $scope.device.uuid, $scope.device.platform, function( returnValue ){
                               this.db = window.openDatabase("BNIDB1", "1.0", "BNI DB", 200000);
                               this.db.transaction(
                               function(tx) {
@@ -266,6 +268,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
 
     this.loadXMLDoc = function (tx, uuid, platform, cb_func)
     {
+    alert("1");
       $.ajax({
            type: 'GET',
            url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.php?" + "uuid=" + uuid + "&amp;platform=" + platform,
