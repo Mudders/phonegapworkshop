@@ -132,6 +132,6 @@ var app = {
 
 };
 
-//app.initialize();
+app.initialize();
 
-document.addEventListener("deviceready", app.initialize(), false);
+//document.addEventListener("deviceready", app.initialize(), false);
